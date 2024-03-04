@@ -1,7 +1,7 @@
 package com.example.products.service.impl;
 
+import com.example.core.ProductCreatedEvent;
 import com.example.products.model.CreateProductRestModel;
-import com.example.products.service.ProductCreatedEvent;
 import com.example.products.service.ProductService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,14 +9,12 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Service;
 
-import java.util.Objects;
 import java.util.UUID;
-import java.util.concurrent.CompletableFuture;
 
 @Service
 public class ProductServiceImpl implements ProductService {
     private Logger logger  = LoggerFactory.getLogger(ProductServiceImpl.class);
-    KafkaTemplate<String,ProductCreatedEvent> kafkaTemplate;
+    KafkaTemplate<String, ProductCreatedEvent> kafkaTemplate;
     public ProductServiceImpl(KafkaTemplate<String,ProductCreatedEvent> kafkaTemplate){
         this.kafkaTemplate = kafkaTemplate;
     }

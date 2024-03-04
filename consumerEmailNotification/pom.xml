@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>productsMicroservice</artifactId>
+	<artifactId>consumerEmailNotification</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>productsMicroservice</name>
-	<description>Products Microservice</description>
+	<name>consumerEmailNotification</name>
+	<description>Email Notification Microservice( Kafka Consumer)</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
@@ -29,11 +29,6 @@
 		<dependency>
 			<groupId>org.springframework.kafka</groupId>
 			<artifactId>spring-kafka</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>1.18.30</version>
 		</dependency>
 
 		<dependency>

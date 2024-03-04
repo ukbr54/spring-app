@@ -1,4 +1,4 @@
-package com.example.products.service;
+package com.example.core;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
