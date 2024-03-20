@@ -6,12 +6,16 @@ import org.axonframework.eventsourcing.EventSourcingHandler;
 import org.axonframework.modelling.command.AggregateIdentifier;
 import org.axonframework.modelling.command.AggregateLifecycle;
 import org.axonframework.spring.stereotype.Aggregate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 
 import java.math.BigDecimal;
 
 @Aggregate
 public class ProductAggregate {
+
+    private Logger LOGGER = LoggerFactory.getLogger(ProductAggregate.class);
 
     @AggregateIdentifier
     private String productId;
@@ -33,6 +37,7 @@ public class ProductAggregate {
 
         ProductCreatedEvent productCreatedEvent = new ProductCreatedEvent();
         BeanUtils.copyProperties(createProductCommand,productCreatedEvent);
+        LOGGER.info("Commands handling Components - {}",this.getClass().getSimpleName());
         AggregateLifecycle.apply(productCreatedEvent);
     }
 
