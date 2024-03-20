@@ -1,6 +1,7 @@
 package com.example.estore.productService.command.rest;
 
 import com.example.estore.productService.command.CreateProductCommand;
+import jakarta.validation.Valid;
 import org.axonframework.commandhandling.gateway.CommandGateway;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,7 +18,7 @@ public class ProductCommandController {
     }
 
     @PostMapping
-    public String createProduct(@RequestBody CreateProductRestModel createProductRestModel){
+    public String createProduct(@Valid @RequestBody CreateProductRestModel createProductRestModel){
         CreateProductCommand createProductCommand = CreateProductCommand.builder()
                 .price(createProductRestModel.getPrice())
                 .title(createProductRestModel.getTitle())
@@ -32,20 +33,5 @@ public class ProductCommandController {
         }
 
         return returnValue;
-    }
-
-    @GetMapping
-    public String getProduct(){
-        return "HTTP GET Handled";
-    }
-
-    @PutMapping
-    public String updateProduct(){
-        return "HTTP PUT Handled";
-    }
-
-    @DeleteMapping
-    public String deleteProduct(){
-        return "HTTP Delete Handled";
     }
 }
